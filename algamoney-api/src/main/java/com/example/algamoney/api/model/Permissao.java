@@ -4,18 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * 
- * @author Juan
- *
- */
 @Entity
-@Table(name="permissao")
+@Table(name = "permissao")
 public class Permissao {
 
 	@Id
 	private Long codigo;
-
 	private String descricao;
 
 	public Long getCodigo() {
@@ -58,5 +52,5 @@ public class Permissao {
 			return false;
 		return true;
 	}
-	
+
 }

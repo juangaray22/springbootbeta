@@ -17,33 +17,25 @@ import org.springframework.stereotype.Service;
 import com.example.algamoney.api.model.Usuario;
 import com.example.algamoney.api.repository.UsuarioRepository;
 
-/**
- * 
- * @author Juan
- *
- */
 @Service
-public class AppUserDetailsService implements UserDetailsService{
+public class AppUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		Optional<Usuario> usuarioOptinal = usuarioRepository.findbyEmail(email);
-		Usuario usuario = usuarioOptinal.orElseThrow(()-> 
-		new UsernameNotFoundException("Usuario e/ou senha incorretos"));
-		
+		Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
+		Usuario usuario = usuarioOptional
+				.orElseThrow(() -> new UsernameNotFoundException("Usuário e/ou senha incorretos"));
 		return new User(email, usuario.getSenha(), getPermissoes(usuario));
 	}
 
 	private Collection<? extends GrantedAuthority> getPermissoes(Usuario usuario) {
 		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-		usuario.getPermissoes().forEach(p-> 
-		authorities.add(new SimpleGrantedAuthority(p.getDescricao().toUpperCase())));
-		
+		usuario.getPermissoes()
+				.forEach(p -> authorities.add(new SimpleGrantedAuthority(p.getDescricao().toUpperCase())));
 		return authorities;
 	}
 
-	
 }
