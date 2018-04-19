@@ -1,0 +1,6 @@
+
+JDBC_DATABASE_URL=jdbc://tk3mehkfmmrhjg0b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/agcd5o66skdbmkhv
+JDBC_DATABASE_USERNAME=lqkylkph16p665x6
+JDBC_DATABASE_PASSWORD=hul29i6aeq10lf6i
+
+heroku config:set JDBC_DATABASE_URL=jdbc://tk3mehkfmmrhjg0b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/agcd5o66skdbmkhv JDBC_DATABASE_USERNAME=lqkylkph16p665x6 JDBC_DATABASE_PASSWORD=hul29i6aeq10lf6i
