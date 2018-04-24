@@ -3,7 +3,11 @@ package com.example.algamoney.api.repository.filter;
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
+/**
+ * 
+ * @author Juan
+ *
+ */
 public class LancamentoFilter {
 
 	private String descricao;
